@@ -13,6 +13,17 @@ Working with Claude Code across multiple repositories, the same setup kept getti
 - A project's own `CLAUDE.md`, if it has one, still loads normally on top of this — the plugin's conventions act as a base template, not a replacement.
 - Multi-step procedures live in skills instead of `CLAUDE.md`, so they only load when relevant. `skills/requirements/` manages a project's `REQUIREMENTS.md`: creating it from a template when missing, and listing, adding, refining, implementing, or discarding requirements.
 
+## Installing in another project
+
+This repo is both the plugin and its own marketplace (`.claude-plugin/marketplace.json` lists it with `source: "./"`), so no separate marketplace repo is needed. From any project, inside Claude Code:
+
+```
+/plugin marketplace add alvaroscelza/claude-plugin
+/plugin install claude-plugin@claude-plugin
+```
+
+If it doesn't activate automatically, run `/reload-plugins`.
+
 ## Status
 
 Early stage — the plugin structure and its contents are still being defined.

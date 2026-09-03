@@ -1,0 +1,15 @@
+{
+    "name": "claude-plugin",
+    "owner": {
+        "name": "alvaroscelza",
+        "email": "alvaroscelza@gmail.com",
+        "url": "https://github.com/alvaroscelza"
+    },
+    "plugins": [
+        {
+            "name": "claude-plugin",
+            "source": "./",
+            "description": "Personal Claude Code plugin bundling reusable conventions, commands, agents and hooks across projects."
+        }
+    ]
+}

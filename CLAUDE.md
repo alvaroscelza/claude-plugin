@@ -23,12 +23,4 @@
 - Before starting work on a new PR, check if the current branch was already merged into `main`. If so, create a new branch from `main`. Never accumulate work from multiple PRs on the same branch.
 
 ## Requirements Management
-Project requirements live in `REQUIREMENTS.md` at the repo root. Always read it at the start of a session or when the user mentions features, tasks, or roadmap items.
-
-When working with requirements:
-- **Adding**: append under `## Pending` with the next REQ-XXX number and status `pending`
-- **Refining**: update the description and criteria in place
-- **Implementing**: move to `## Implemented` with the PR number when done
-- **Discarding**: move to `## Discarded` with a brief reason
-
-When asked to implement a requirement, reference its REQ-XXX id in the commit message and PR description.
+Requirements must be managed in a `REQUIREMENTS.md` file at the project root. Create it if it doesn't exist, and use the corresponding skill to maintain it.

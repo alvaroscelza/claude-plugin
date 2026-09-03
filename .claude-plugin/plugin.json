@@ -7,5 +7,6 @@
         "email": "alvaroscelza@gmail.com",
         "url": "https://github.com/alvaroscelza"
     },
-    "hooks": "./hooks/hooks.json"
+    "hooks": "./hooks/hooks.json",
+    "skills": "./skills/"
 }

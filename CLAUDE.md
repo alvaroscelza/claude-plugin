@@ -21,6 +21,7 @@
 - Use four spaces for indentation.
 - Don't nest classes, functions or methods.
 - Before starting work on a new PR, check if the current branch was already merged into `main`. If so, create a new branch from `main`. Never accumulate work from multiple PRs on the same branch.
+- Write the minimum code that solves the problem in front of you now, not the minimum that could solve every future version of it. Resist premature abstraction, skip error handling for errors that cannot occur, and hardcode values until there is a real reason to configure them. The test: if the only reason something is abstracted is "in case we need to," you have over-built it. Do not create things "just in case", always create the minimum amount of code to complete the need. "It will have", "it will implement", .keep files, are all symptoms of things we don't need now, don't add them.
 
 ## Requirements Management
 Requirements must be managed in a `REQUIREMENTS.md` file at the project root. Create it if it doesn't exist, and use the corresponding skill to maintain it.

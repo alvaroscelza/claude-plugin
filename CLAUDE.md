@@ -25,3 +25,6 @@
 
 ## Requirements Management
 Requirements must be managed in a `REQUIREMENTS.md` file at the project root. Create it if it doesn't exist, and use the corresponding skill to maintain it.
+
+## Pull requests
+- Never close developers comments when answering them, the developer must be able to see them open, see your answer and choose whether they want to close it or not.

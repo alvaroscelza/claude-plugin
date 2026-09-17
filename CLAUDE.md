@@ -21,6 +21,7 @@
 - Use four spaces for indentation.
 - Don't nest classes, functions or methods.
 - Before starting work on a new PR, check if the current branch was already merged into `main`. If so, create a new branch from `main`. Never accumulate work from multiple PRs on the same branch.
+- Always commit and push every change to the branch being worked on. Never leave anything uncommitted or unpushed in the local environment.
 
 ## Requirements Management
 Requirements must be managed in a `REQUIREMENTS.md` file at the project root. Create it if it doesn't exist, and use the corresponding skill to maintain it.

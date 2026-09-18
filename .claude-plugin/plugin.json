@@ -1,9 +1,8 @@
 {
     "name": "claude-plugin",
-    "displayName": "Alvaro's Claude Plugin",
-    "version": "0.1.0",
     "description": "Personal Claude Code plugin bundling reusable conventions, commands, agents and hooks across projects.",
     "author": {
+        "name": "Alvaro Scelza",
         "email": "alvaroscelza@gmail.com",
         "url": "https://github.com/alvaroscelza"
     },

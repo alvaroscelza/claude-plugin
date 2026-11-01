@@ -24,10 +24,6 @@
 - Write the minimum code that solves the problem in front of you now, not the minimum that could solve every future version of it. Resist premature abstraction, skip error handling for errors that cannot occur, and hardcode values until there is a real reason to configure them. The test: if the only reason something is abstracted is "in case we need to," you have over-built it. Do not create things "just in case", always create the minimum amount of code to complete the need. "It will have", "it will implement", .keep files, are all symptoms of things we don't need now, don't add them.
 - Always commit and push every change to the branch being worked on. Never leave anything uncommitted or unpushed in the local environment.
 
-## Skills
-
-Before acting, discover skills under `skills/`. List every `SKILL.md` under that directory, read each frontmatter `name` and `description`, and when a description matches the request, read that skill in full and follow it before acting.
-
 ## Requirements Management
 Requirements must be managed in a `REQUIREMENTS.md` file at the project root. Create it if it doesn't exist, and use the corresponding skill to maintain it.
 

@@ -1,11 +1,9 @@
 {
     "name": "claude-plugin",
-    "description": "Personal Claude Code plugin bundling reusable conventions, commands, agents and hooks across projects.",
+    "description": "Personal Claude Code plugin bundling reusable conventions, commands, and agents across projects.",
     "author": {
         "name": "Alvaro Scelza",
         "email": "alvaroscelza@gmail.com",
         "url": "https://github.com/alvaroscelza"
-    },
-    "hooks": "./hooks/hooks.json",
-    "skills": "./skills/"
+    }
 }

@@ -9,7 +9,7 @@
         {
             "name": "claude-plugin",
             "source": "./",
-            "description": "Personal Claude Code plugin bundling reusable conventions, commands, agents and hooks across projects."
+            "description": "Personal Claude Code plugin bundling reusable conventions, commands, and agents across projects."
         }
     ]
 }

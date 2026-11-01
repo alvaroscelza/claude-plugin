@@ -26,7 +26,7 @@
 
 ## Skills
 
-Before acting, discover skills in `skills/` next to this file. List every `SKILL.md` under that directory, read each frontmatter `name` and `description`, and when a description matches the request, read that skill in full and follow it before acting. In a host repository, use the absolute skills path written into that repository's `CLAUDE.md` and `AGENTS.md`.
+Before acting, discover skills under `skills/`. List every `SKILL.md` under that directory, read each frontmatter `name` and `description`, and when a description matches the request, read that skill in full and follow it before acting.
 
 ## Requirements Management
 Requirements must be managed in a `REQUIREMENTS.md` file at the project root. Create it if it doesn't exist, and use the corresponding skill to maintain it.

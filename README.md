@@ -1,6 +1,6 @@
 # claude
 
-A personal plugin that packages shared conventions and skills so any agent can use them in a host repository.
+Shared conventions and skills for Claude Code and Cursor. Other agents are not supported.
 
 ## Why
 
@@ -8,19 +8,39 @@ Working with Claude Code across multiple repositories, the same setup kept getti
 
 ## How it works
 
-- `CLAUDE.md` at the repo root holds the base conventions for this repository.
-- Skills live in `templates/skills/` and are not registered as Claude Code plugin skills, so they are not loaded twice. `templates/skills/requirements/` manages a project's `REQUIREMENTS.md`: creating it from a template when missing, and listing, adding, refining, implementing, or discarding requirements.
-- Nothing in this plugin runs automatically on clone. `setup.sh` copies the skills into a host repository and adds one delimited rule to that repository's `CLAUDE.md` and `AGENTS.md`.
+- `CLAUDE.md` at the repo root holds the base conventions loaded into every project's context.
+- Plugin root `CLAUDE.md` files are not auto-loaded. Each tool has a session-start hook that injects this file.
+- A project's own `CLAUDE.md`, if it has one, still loads normally on top of this. The plugin's conventions act as a base template, not a replacement.
+- Multi-step procedures live in `skills/`. `skills/requirements/` manages a project's `REQUIREMENTS.md`: creating it from a template when missing, and listing, adding, refining, implementing, or discarding requirements.
+- Nothing here edits the host repository's `CLAUDE.md` or `AGENTS.md`.
 
-## Using it in another repository
+## Claude Code
 
-From this repository, run:
+This repo is both the plugin and its own marketplace (`.claude-plugin/marketplace.json` lists it with `source: "./"`). From any project, inside Claude Code:
 
 ```
-./setup.sh /path/to/host-repo
+/plugin marketplace add alvaroscelza/claude-plugin
+/plugin install claude-plugin@claude-plugin
 ```
 
-The host path defaults to the current directory. Run it once per host repository, then commit the generated `.claude/skills/`, `CLAUDE.md`, and `AGENTS.md` there. Run it again to update, and commit whatever changed. The script replaces only skill folders it owns and only its `<!-- claude-plugin:start -->` block, so other skills and the rest of those files stay in place. It does not run git.
+If it doesn't activate automatically, run `/reload-plugins`.
+
+`hooks/hooks.json` runs `hooks/inject-claude-md.sh` on `SessionStart`. The script prints this repo's `CLAUDE.md` as `additionalContext`. Claude Code loads `skills/` from the installed plugin on its own.
+
+## Cursor
+
+Cursor does not install Claude Code plugins. Hooks in `.claude-plugin` are not read from `.claude/settings.json`, which is where Cursor loads third-party Claude hooks. This repo also ships a Cursor plugin (`.cursor-plugin/plugin.json`) whose `sessionStart` hook is `hooks/cursor-hooks.json`.
+
+Install that plugin once, at user scope, so every host repository gets it:
+
+1. Open Customize in the sidebar.
+2. Install this plugin and choose user scope. Project scope limits it to one repository.
+
+Before it is listed in a marketplace, load it locally: copy this repository to `~/.cursor/plugins/local/claude-plugin` and run Developer: Reload Window. Cursor ignores a symlink in that folder when the target sits outside it. Confirm the plugin under Customize. The Hooks tab and the Hooks output channel show whether `sessionStart` ran.
+
+On each new agent conversation the hook runs `hooks/inject-cursor-context.sh`. It returns `additional_context` containing `CLAUDE.md` plus the absolute path of the installed `skills/` directory (`CURSOR_PLUGIN_ROOT/skills`), and Cursor also registers those skills from the plugin manifest. The agent lists every `SKILL.md` there, reads each frontmatter `name` and `description`, and follows a skill whose description matches the task.
+
+`sessionStart` can inject that context. It is fire-and-forget: the agent loop does not wait for the hook, and `continue` is not enforced. Cloud agents defer `sessionStart` until after the first write, because hooks are not loaded while the environment is still read-only, so the context is not present at the true start of a cloud session.
 
 ## Status
 

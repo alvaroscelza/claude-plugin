@@ -1,0 +1,10 @@
+{
+    "name": "claude-plugin",
+    "description": "Personal conventions and skills for Cursor, with the same CLAUDE.md context Claude Code loads.",
+    "author": {
+        "name": "Alvaro Scelza",
+        "email": "alvaroscelza@gmail.com"
+    },
+    "hooks": "./hooks/cursor-hooks.json",
+    "skills": "./skills/"
+}

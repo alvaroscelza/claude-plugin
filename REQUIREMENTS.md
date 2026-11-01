@@ -10,6 +10,6 @@ This file is the source of truth for project requirements. AI agents must read i
 Status: implemented
 Pull request: https://github.com/alvaroscelza/claude-plugin/pull/5
 
-Agents other than Claude Code must discover this plugin's skills the same way Claude does. `setup.sh` copies `templates/skills/` into the host `.claude/skills/` and adds a delimited block to the host `CLAUDE.md` and `AGENTS.md`. The block tells every agent to list `.claude/skills/*/SKILL.md` at session start and follow a skill whose description matches the task. Nothing runs automatically on clone. Existing host content stays intact, and the user commits the result.
+Only Claude Code and Cursor are supported. Claude Code installs this plugin and gets `CLAUDE.md` from the `SessionStart` hook, plus `skills/` from the plugin manifest. Cursor does not install Claude plugins, so the Cursor plugin's `sessionStart` hook injects `CLAUDE.md` and the installed skills directory as `additional_context`. Host `CLAUDE.md` and `AGENTS.md` are not modified.
 
 ## Discarded
